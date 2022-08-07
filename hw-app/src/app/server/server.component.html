@@ -2,4 +2,7 @@
 <p>{{name}}</p> -->
 
 <input type="text" class="form-control" [(ngModel)]="serverName">
-<p>{{serverName}}</p>
+
+<button [disabled]="isDisabled()" (click)="onAddServer()"> Add server</button>
+
+<p *ngIf="serverCreated">Server {{serverName}} was created</p>
