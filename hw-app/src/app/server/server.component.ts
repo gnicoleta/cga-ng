@@ -10,7 +10,7 @@ import { Component } from "@angular/core";
 export class ServerComponent {
 
     public name: string = "";
-    public serverName: string = "Server_" +  Math.random();
+    public serverName: string = "Server_10";
     public serverStatus: string = "offline";
 
     constructor() {
