@@ -5,4 +5,8 @@
 
 <button [disabled]="isDisabled()" (click)="onAddServer()"> Add server</button>
 
-<p *ngIf="serverCreated">Server {{serverName}} was created</p>
+<p *ngIf="serverCreated; else noServer">Server {{serverName}} was created</p>
+
+<ng-template #noServer>
+    <p> No server created yet</p>
+</ng-template>
