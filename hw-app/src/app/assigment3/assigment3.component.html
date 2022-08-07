@@ -1,6 +1,9 @@
 <button (click)="onDisplay()"> Display details</button>
 
-<p [ngStyle]="{color:showDetails?'green':'red'}">Secret password = tuna</p>
+<p *ngIf="showDetails; else hiddenDetails">Secret password = tuna</p>
+<ng-template #hiddenDetails>
+    <p>Details are hidden!</p>
+</ng-template>
 
 <p *ngFor="let hist of detailsHistoryArr; let i = index" [ngStyle]="{'background': i >= 5 ? 'blue' : ''}" [ngClass]="{colorEntry: getColorEntry(i)}">
     {{hist}}
