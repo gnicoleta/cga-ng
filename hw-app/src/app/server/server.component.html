@@ -10,3 +10,5 @@
 <ng-template #noServer>
     <p> No server created yet</p>
 </ng-template>
+
+<p [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{online:serevrStatusCheck()}">Server status is {{serverStatus}}</p>
