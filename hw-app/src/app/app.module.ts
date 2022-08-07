@@ -7,6 +7,7 @@ import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { ServerTestAttributeSelectorComponent } from './server-test-attribute-selector/server-test-attribute-selector.component';
 import { Asgmnt2Component } from './asgmnt2/asgmnt2.component';
+import { Assigment3Component } from './assigment3/assigment3.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { Asgmnt2Component } from './asgmnt2/asgmnt2.component';
     ServerComponent,
     ServersComponent,
     ServerTestAttributeSelectorComponent,
-    Asgmnt2Component
+    Asgmnt2Component,
+    Assigment3Component
   ],
   imports: [
     BrowserModule,
