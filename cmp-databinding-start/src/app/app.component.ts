@@ -8,7 +8,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   serverElements = [{type: "server", name:"Testserver", content:"Just a test"}];
 
-  onServerAdded(serverData : {serverName:string, serevrContent:string}) {
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+  
+  onIntervalFired(firedNumber: number) {
+    if (firedNumber % 2 === 0) {
+      this.evenNumbers.push(firedNumber);
+    } else {
+      this.oddNumbers.push(firedNumber);
+    }
+  }
+
+  onOdd(serverData : {serverName:string, serevrContent:string}) {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -16,7 +27,7 @@ export class AppComponent {
     });
   }
 
-  onBlueprintAdded(blueprintData : {serverName:string, serevrContent:string}) {
+  onEven(blueprintData : {serverName:string, serevrContent:string}) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,
