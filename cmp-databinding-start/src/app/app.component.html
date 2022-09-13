@@ -5,6 +5,7 @@
     <div class="col-xs-12">
       <app-server-element *ngFor="let serverEl of serverElements" 
       [srvElement]="serverEl">
+      <!-- <p #contentParagraph> -->
       <p>
         <strong *ngIf="srvElement?.type === 'server'" style="color: red">{{ srvElement.content }}</strong>
         <em *ngIf="srvElement?.type === 'blueprint'">{{ srvElement.content }}</em>
