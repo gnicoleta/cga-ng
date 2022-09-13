@@ -4,7 +4,11 @@
   <div class="row">
     <div class="col-xs-12">
       <app-server-element *ngFor="let serverEl of serverElements" 
-      [srvElement]="serverEl"></app-server-element>
+      [srvElement]="serverEl">
+      <p>
+        <strong *ngIf="srvElement?.type === 'server'" style="color: red">{{ srvElement.content }}</strong>
+        <em *ngIf="srvElement?.type === 'blueprint'">{{ srvElement.content }}</em>
+      </p></app-server-element>
     </div>
   </div>
 </div>
