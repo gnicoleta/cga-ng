@@ -8,5 +8,5 @@ import { UsersService } from './services/users.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public usersService : UsersService, public counterService:CounterService){}
+  constructor(public counterService:CounterService){}
 }
