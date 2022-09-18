@@ -22,13 +22,25 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
+        if (count == 2) {
+          observer.complete(); //it's done
+        }
+        if (count > 3) {
+          observer.error(new Error('Count is greater than 3!')); //an error cancels the observable
+        }
         count++;
       }, 1000)
     });
 
-    this.customObservaleSubscription = customObservale.subscribe((datra) => {
-      console.log("###: " + datra);
-    })
+    this.customObservaleSubscription = customObservale.subscribe((data) => {
+      console.log("###: " + data);
+    },
+      (error) => {
+        alert(error.message);
+      },
+      () => {
+        console.log("Completed");
+      })
   }
 
 }
