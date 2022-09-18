@@ -17,22 +17,21 @@ export class ServerComponent implements OnInit {
     private router: Router) { }
 
     ngOnInit() {
-      this.server = {
-        id:this.route.snapshot.params['id'],
-        name:this.route.snapshot.params['name'],
-        status:this.route.snapshot.params['status']
-      }
-  
-      this.parasmSubscription = this.route.params.subscribe((params:Params) => {
-        this.server.id = params['id'],
-        this.server.name = params['name'],
-        this.server.status = params['status']
-  
+      const id =+ this.route.snapshot.params['id'];
+      this.server = this.serversService.getServer(id);
+
+      this.route.params.subscribe((params : Params) => {
+        this.server = this.serversService.getServer(+params['id'])
       })
     }
   
     ngOnDestroy(): void {
-      this.parasmSubscription.unsubscribe();
+      //this.parasmSubscription.unsubscribe();
+    }
+
+    onEdit() {
+      //this.router.navigate(['/servers', this.server.id,'edit'], {relativeTo:this.route, queryParamsHandling:'preserve'});
+      this.router.navigate(['edit'], {relativeTo:this.route, queryParamsHandling:'preserve'});
     }
 
 }
