@@ -27,11 +27,11 @@
         <div formArrayName="hobbies">
           <h4>Your hobbies</h4>
           <button class="btn btn-primary" type="button" (click)="addHobbies()"> Add  hobby</button>
-          <div class="form-group" *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index">
+          <div class="form-group" *ngFor="let hobbyControl of getControls(); let i = index">
             <input type="text" class="form-control" [formControlName]="i">
           </div>
         </div>
-        
+
         <hr>
         <span *ngIf="!signupForm.valid && signupForm.touched" class="help-block">
           Pls enter valid data!

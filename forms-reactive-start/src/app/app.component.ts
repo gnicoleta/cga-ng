@@ -30,4 +30,9 @@ export class AppComponent implements OnInit {
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }
 
+  //fix for fail as of the latest Angular version
+  getControls() {
+    return (<FormArray>this.signupForm.get('hobbies')).controls;
+  }
+
 }
