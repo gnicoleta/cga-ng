@@ -22,6 +22,16 @@ export class AppComponent implements OnInit {
       'gender': new FormControl('female'),
       'hobbies': new FormArray([]),
     })
+
+    //this is for each value that is changed in the form
+    this.signupForm.valueChanges.subscribe((value) => {
+      console.log(value);
+    })
+
+    //this is for the status of the form (valid/invalid/pending)
+    this.signupForm.statusChanges.subscribe((value) => {
+      console.log(value);
+    })
   }
   onSubmit() {
     //we already have the form, created above 
