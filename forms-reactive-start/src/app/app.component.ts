@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
     })
 
     //settign and pathcing values
-
     this.signupForm.setValue({
       'userData' : {
         'username':'Max',
@@ -43,10 +42,18 @@ export class AppComponent implements OnInit {
       'gender':'male',
       'hobbies':[]
     })
+    
+    //if you want to update only part of the form
+    this.signupForm.patchValue({
+      'userData' : {
+        'username':'Max',
+      }
+    })
 
   }
   onSubmit() {
     //we already have the form, created above 
+    this.signupForm.reset();
   }
 
   addHobbies() {
