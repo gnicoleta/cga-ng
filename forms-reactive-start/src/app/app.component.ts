@@ -32,6 +32,18 @@ export class AppComponent implements OnInit {
     this.signupForm.statusChanges.subscribe((value) => {
       console.log(value);
     })
+
+    //settign and pathcing values
+
+    this.signupForm.setValue({
+      'userData' : {
+        'username':'Max',
+        'email':'max@test.com'
+      },
+      'gender':'male',
+      'hobbies':[]
+    })
+
   }
   onSubmit() {
     //we already have the form, created above 
