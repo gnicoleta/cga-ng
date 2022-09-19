@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs-compat';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.forbidenNames.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'email': new FormControl(null, [Validators.required, Validators.email], this.forbidenEmails),
       }),
       'gender': new FormControl('female'),
       'hobbies': new FormArray([]),
@@ -41,6 +42,17 @@ export class AppComponent implements OnInit {
       return {nameIsForbiden : true};
     }
     return null; //!!! if valdaition is successful, you have to pass nothing or null
+  }
+
+  forbidenEmails(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value == "test@test.com") {
+          resolve({ 'emailIsForbiden': true })
+        } else resolve(null);
+      }, 1500);
+    });
+    return promise;
   }
 
 }
