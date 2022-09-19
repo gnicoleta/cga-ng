@@ -18,5 +18,8 @@ export class AppComponent implements OnInit{
       'gender': new FormControl('female'),
     })
   }
+  onSubmit() {
+   //we already have the form, created above 
+  }
 
 }
