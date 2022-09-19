@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { Ingridient } from 'src/app/shared/ingridient.model';
 import { ShoppingListService } from '../shopping-list.service';
 
