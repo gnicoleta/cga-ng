@@ -10,7 +10,7 @@
           <span
             *ngIf="!signupForm.get('projectData.projectName').valid && signupForm.get('projectData.projectName').touched"
             class="help-block">
-            <span *ngIf="signupForm.get('projectData.projectName').errors['nameIsForbiden']">
+            <span *ngIf="signupForm.get('projectData.projectName').errors['invalidProjectName']">
               This project name is forbiden!
             </span>
             <span *ngIf="signupForm.get('projectData.projectName').errors['required']">
