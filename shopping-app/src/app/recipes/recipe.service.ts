@@ -7,7 +7,10 @@ import { Recipe } from "./recipe.model";
 @Injectable()
 export class RecipeService {
 
-    constructor(private slService : ShoppingListService){}
+    constructor(private slService: ShoppingListService) { }
+
+
+    recipesChanged = new Subject<Recipe[]>();
 
     private recipes: Recipe[] = [
         new Recipe("Delicious Steak", "Beef", "https://img.taste.com.au/BI1PJu7n/taste/2016/11/paprika-beef-steaks-with-chimichurri-sauce-and-wedges-102931-1.jpeg",
@@ -21,15 +24,29 @@ export class RecipeService {
     getRecipes() {
         return this.recipes.slice(); //by adding slice we wont get the actual array but a copy of it
     }
-    
-    getRecipe (index : number) {
+
+    getRecipe(index: number) {
         return this.recipes[index];
     }
 
-    addIngridientsToShoppingList(ingridients : Ingridient[]) {
+    addIngridientsToShoppingList(ingridients: Ingridient[]) {
         this.slService.addIngridients(ingridients);
     }
 
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+      }
+    
+      updateRecipe(index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipesChanged.next(this.recipes.slice());
+      }
+    
+      deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice());
+      }
 
 
 }
